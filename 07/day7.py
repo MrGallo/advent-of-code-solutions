@@ -74,9 +74,3 @@ while stack or in_progress:
     time += 1
 
 print(time)
-
-# HPDTNXYLOCGEQSIMABZKRUWVFJ - correct
-# HPDTNXYLOCGEQSIMABZKRUWVFJ
-
-# HPXYBDUGQLOETCNSWIMZAJFKRV - incorrect
-# HPXYBDUGLOTCNQSEMIAZKRWVFJ - incorrect
