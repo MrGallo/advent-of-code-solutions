@@ -14,14 +14,14 @@ def get_highest_score(players=468, last_marble_value=71010):
         turn += 1
         player = turn % players + 1
 
-        if current_marble % 23 != 0:
-            circle.rotate(CLOCKWISE)
-            circle.append(current_marble)
-        else:
+        if current_marble % 23 == 0:
             circle.rotate(COUNTER_CW*7)
             player_scores[player] += current_marble + circle.pop()
             circle.rotate(CLOCKWISE)
-
+        else:
+            circle.rotate(CLOCKWISE)
+            circle.append(current_marble)
+            
     return max(player_scores.values())
 
 
