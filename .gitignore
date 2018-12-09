@@ -68,5 +68,6 @@ fabric.properties
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/other.xml
 .idea/advent-of-code-2018.iml
 Pipfile.lock
