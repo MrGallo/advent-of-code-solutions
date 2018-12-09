@@ -1,5 +1,3 @@
-from collections import Counter
-
 
 def reaction(u1, u2):
     return u1 != u2 and u1.lower() == u2.lower()
@@ -19,6 +17,6 @@ def collapse(polymer):
 with open('input.txt') as f:
     polymer = f.read().strip()
 
-unique_units = Counter(polymer.lower()).keys()
+unique_units = set(polymer.lower())
 polymer_lengths = [len(collapse(polymer.replace(unit, "").replace(unit.upper(), ""))) for unit in unique_units]
 print(min(polymer_lengths))
