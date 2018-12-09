@@ -71,3 +71,4 @@ fabric.properties
 .idea/other.xml
 .idea/advent-of-code-2018.iml
 Pipfile.lock
+.idea/advent-of-code-solutions.iml
