@@ -30,14 +30,6 @@ def parse_dot(raw_string):
 
 
 lines = input_string.split('\n')
-
-
-# lines = """position=<-32494,  54541> velocity=< 3, -5>
-# position=<-21598,  11014> velocity=< 2, -1>
-# position=< 21906,  21894> velocity=<-2, -2>
-# position=<-32484, -32508> velocity=< 3,  3>
-# position=<-54245, -21619> velocity=< 5,  2>""".split('\n')
-
 stars = [parse_dot(line) for line in lines]
 arrival_times = get_arrival_times(stars)
 eta = int(sum(arrival_times)/len(arrival_times))
@@ -47,8 +39,8 @@ def setup():
     size(1000, 1000)
     noLoop()
 
+
 def draw():
-    
     background(0)
     translate(width/2, height/2)
     scale(1)
@@ -70,8 +62,8 @@ def keyPressed(e):
             time += 50
         elif keyCode == LEFT:
             time -= 50
-    
     redraw()
+
 
 def mouseWheel(e):
     global time
