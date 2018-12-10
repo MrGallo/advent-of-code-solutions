@@ -1,7 +1,7 @@
 """
 Sketch will show stars on the canvas at an estimated convergence time.
-Press mousewheel up/down to increase/decrease the time.
-Press left and right arrows ro advance time in greater intervals.
+Turn mousewheel up/down to increase/decrease the time.
+Press left and right arrows to advance time in greater intervals.
 """
 
 import re
