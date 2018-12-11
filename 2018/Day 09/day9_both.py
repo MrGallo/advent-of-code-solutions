@@ -1,10 +1,10 @@
 from collections import defaultdict, deque
 
-CLOCKWISE = -1
-COUNTER_CW = 1
-
 
 def get_highest_score(players=468, last_marble_value=71010):
+    CLOCKWISE = -1
+    COUNTER_CW = 1
+    
     marbles = last_marble_value + 1
     player_scores = defaultdict(int)
 
