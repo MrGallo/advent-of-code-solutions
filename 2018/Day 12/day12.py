@@ -72,22 +72,28 @@ for line in lines[2:]:
 
 print("0", "".join([s for l, s in pots]))
 
-# lists
+# this             bitwise
 # 5* 10**10
-# ** 4 -> 1.5
-# ** 5 -> 14
+# ** 4 -> 1.5       4.2
+# ** 5 -> 14        42
 # ** 6 -> 147
 
 # deques
-# ** 5 ->
+# ** 5 -> 21
 
 start = pc()
-for i in range(5*10**4):
+n = p = 0
+for i in range(5*10**3):
+    p = n
     pots = next_generation(pots)
+    n = sum([l for l, s in pots if s == "#"])
+    print(n-p)
     # print("".join([s for l, s in pots[:50]]))
     # print(i+1, "".join([s for l, s in pots]))
 
-print(sum([l for l, s in pots if s == "#"]))
+
+print(p + (n-p) * (5*10**10 - i))
+# credit to @fogleman (https://github.com/fogleman/AdventOfCode2018/blob/master/12.py)
 
 print(pc()-start)
 
