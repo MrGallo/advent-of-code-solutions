@@ -25,14 +25,12 @@ def sum_of_children(parent, exclude_value=None):
 
 def part_one():
     with open('input.txt') as f:
-        # print(sum(extract_numbers_from_string(f.read())))
         data = json.loads(f.read())
         print(sum_of_children(data))
 
 
 def part_two():
     with open('input.txt') as f:
-        # print(sum(extract_numbers_from_string(f.read())))
         data = json.loads(f.read())
         print(sum_of_children(data, exclude_value="red"))
 
