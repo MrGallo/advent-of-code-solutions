@@ -32,14 +32,6 @@ def parse_reindeer(line):
     return name, fly_speed, fly_time, rest_time
 
 
-def calc_num_cycles(seconds, fly_time, rest_time):
-    return seconds // (fly_time + rest_time)
-
-
-def calc_remaining_fly_time(seconds, fly_time, rest_time):
-    return min(seconds % (fly_time + rest_time), fly_time)
-
-
 def calc_distance_at(reindeer, seconds):
     name, fly_speed, fly_time, rest_time = reindeer
 
@@ -47,6 +39,14 @@ def calc_distance_at(reindeer, seconds):
     remaining_time = calc_remaining_fly_time(seconds, fly_time, rest_time)
 
     return full_cycles * fly_time * fly_speed + remaining_time * fly_speed
+
+
+def calc_num_cycles(seconds, fly_time, rest_time):
+    return seconds // (fly_time + rest_time)
+
+
+def calc_remaining_fly_time(seconds, fly_time, rest_time):
+    return min(seconds % (fly_time + rest_time), fly_time)
 
 
 def get_distance_indicies_at(reindeers, second):
