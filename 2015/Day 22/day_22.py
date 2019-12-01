@@ -114,4 +114,4 @@ print(mana_spent)  # answer: 900
 # part 2
 first_win = find_first_win(player, enemy, hard_mode_active=True)
 mana_spent = sum([mana for name, mana in first_win])
-print(mana_spent)  # answer: 900
+print(mana_spent)  # answer: 1216
