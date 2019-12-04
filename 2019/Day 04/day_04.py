@@ -1,6 +1,19 @@
 from typing import List
 
 
+def main() -> None:
+    start, end = 402328, 864247
+
+    matches = []
+    for num in range(start, end):
+        num_list = int_to_list(num)
+        # if has_2_adjacent(num_list) and is_increasing(num_list):  # part 1
+        if has_at_most_2_adjacent(num_list) and is_increasing(num_list):  # part 2
+            matches.append(num)
+
+    print(len(matches))
+
+
 def has_2_adjacent(digits: List[int]) -> bool:
     """For Part 1"""
     for a, b in zip(digits[:-1], digits[1:]):
@@ -34,13 +47,5 @@ def int_to_list(n: int) -> List[int]:
     return [int(digit) for digit in str(n)]
 
 
-start, end = 402328, 864247
-
-matches = []
-for num in range(start, end):
-    num_list = int_to_list(num)
-    # if has_2_adjacent(num_list) and is_increasing(num_list):  # part 1
-    if has_at_most_2_adjacent(num_list) and is_increasing(num_list):  # part 2
-        matches.append(num)
-
-print(len(matches))
+if __name__ == "__main__":
+    main()
