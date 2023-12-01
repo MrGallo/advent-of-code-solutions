@@ -3,7 +3,7 @@
 The Advent of Code, while extremely fun, is also extremely difficult for begninners and even some intermediate programmers. I will try my best to keep up with the days and distill the problem in to more manageable chunks.
 
 ## Day 1
-1. Given a string containing letters and numbers, extract the first and last number and stick them together. For example given the string `"ab4c5d9ef"`, your program would output the integer `49`. Reason: `4` is the first number in the string and `9` is the last. Use string.isdigit() to determine if a particular character is a number.
+1. Given a string containing letters and numbers, extract the first and last number and stick them together. For example given the string `"ab4c5d9ef"`, your program would output the integer `49`. Reason: `4` is the first number in the string and `9` is the last. Use `string.isdigit()` to determine if a particular character is a number.
     ```python
     # tests
     "ab4c5d9ef" -> 49
