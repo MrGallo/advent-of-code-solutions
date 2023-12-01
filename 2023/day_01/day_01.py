@@ -1,6 +1,6 @@
 """
-Overkill recursive functions to get the left most number and then another
-function to get the left most number.
+Overkill recursive functions to get the left-most number and then another
+function to get the right-most number.
 
 Better solution: day_01_simpler.py
 """
