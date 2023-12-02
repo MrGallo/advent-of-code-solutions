@@ -1,11 +1,6 @@
-from typing import Optional
+from typing import Optional, List, Tuple, Set
 
 
-terminal_lines = []
-with open("test.txt", "r") as f:
-    terminal_lines = [line.strip().split() for line in f.readlines()]
-
-print(terminal_lines)
 
 class File:
     def __init__(self, name: str, size):
@@ -19,9 +14,50 @@ class Directory:
         self.parent = parent
         self.files: list[File] = []
         self.directories: list["Directory"] = []
+    
+    def __repr__(self) -> str:
+        parent_name = self.parent.name if self.parent is not None else "None"
+        return f"Directory(name={self.name}, parent={parent_name})"
 
 
-root = Directory("/")
+    def print_tree(self, level = 1, tab_size = 4):
+        print(" " * ((level-1) * tab_size) + self.name + "/")
+        for dir in self.directories:
+            dir.print_tree(level=level + 1)
+        
+        for file in self.files:
+            print(" " * (level * tab_size) + file.name + f" (file, size={file.size})")
+        
+    def get_size(self, visited: Optional[Set[Tuple["Directory", int]]] = None) -> int:
+        if visited is None:
+            visited = {}
+        
+        # if visited.get(self, False):
+        #     return visited[self]
+
+        size = 0
+
+        for file in self.files:
+            size += file.size
+        
+        for child_dir in self.directories:
+            size += child_dir.get_size(visited)
+        
+        visited[self] = size
+        return size
+
+    def find_dirs_with_size(self):
+        visited = {}
+        self.get_size(visited)
+        return tuple(visited.items())
+
+
+terminal_lines = []
+with open("input.txt", "r") as f:
+    terminal_lines = [line.strip().split() for line in f.readlines()]
+
+print(terminal_lines)
+root = Directory("")
 pwd = root
 for line in terminal_lines[1:]:
     if line[0] == "$":
@@ -31,27 +67,27 @@ for line in terminal_lines[1:]:
             if arg == "..":
                 pwd = pwd.parent
             else:
-                new_dir = Directory(dir_name, parent=pwd)
+                new_dir = Directory(arg, parent=pwd)
                 pwd.directories.append(new_dir)
                 pwd = new_dir
-    # elif line[0] == "dir":
-    #     dir_name = line[1]
-    #     pwd.directories.append(Directory(dir_name, parent=pwd))
-    else:
+    elif line[0] != "dir":
         size, name = line
         size = int(size)
         pwd.files.append(File(name, size))
 
-def print_tree(root: Directory, level = 1):
-    print(root.name)
-    for dir in root.directories:
-        print(" " * (level * 2) + dir.name + " (dir)")
     
-    for file in root.files:
-        print(" " * (level * 2) + file.name + f" (file, size={file.size})")
-    
-    for dir in root.directories:
-        print_tree(dir, level + 1)
+root.print_tree()
+dirs = root.find_dirs_with_size()
+print(sum(size for dir, size in dirs if size < 100_000))  # Part 1: 1297159
 
+MAX_CAPACITY = 70_000_000
+REQUIRED_STORAGE = 30_000_000
 
-print_tree(root)
+root_size = root.get_size()
+for dir, size in sorted(dirs, key=lambda a: a[1]):
+    remaining = MAX_CAPACITY - root_size + size
+    if remaining > REQUIRED_STORAGE:
+        found = dir, size
+        break
+
+print(size)  # Part 2: 3866390
