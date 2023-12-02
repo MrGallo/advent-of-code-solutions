@@ -41,7 +41,6 @@ print(sum_ids)  # Part 1: 2541
 
 sum_powers = 0
 for game in games:
-    power = 0
     min_needed = {
         "red": 0,
         "green": 0,
