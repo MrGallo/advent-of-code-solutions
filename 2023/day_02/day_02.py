@@ -8,8 +8,8 @@ with open("input.txt", "r") as f:
     for line in f.read().split("\n"):
         colon_i = line.index(":")
         rounds = list(
-            tuple(round.split(", ")) 
-            for round in map(
+            tuple(rnd.split(", ")) 
+            for rnd in map(
                 str.strip,
                 line[colon_i + 1:].split(";"))
         )
