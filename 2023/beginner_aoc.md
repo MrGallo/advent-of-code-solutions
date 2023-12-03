@@ -4,7 +4,7 @@ The Advent of Code, while extremely fun, is also extremely difficult for begninn
 
 | | | | | |
 | - | - | - | - | - |
-| [Day 1](#day-1) | [Day 2](#day-2) | [Day 3](#day-3) |  |  |
+| [Day 1](#day-1) | [Day 2](#day-2) | [Day 3](#day-3) | [Day 4](#day-4) |  |
 | | | | | |
 | | | | | |
 | | | | | |
@@ -102,3 +102,28 @@ You have to repair a gondola (a suspended cart to get up a mountain). The elves 
     Now you need to count numbers next to `*` even above, below and diagonally. What is the sum of all the numbers that are parts? In this example, the sum is `7 + 3 + 7 + 6 = 23` ( the `4` is the only one not adjacent to a star)
 3. Stars that are beside *exactly* two numbers are gears. For every star that is a gear, multiply the two numbers together to get the "gear ratio". Add these all the gear ratios together.
 
+## Day 4
+Check out the [original problem](https://adventofcode.com/2023/day/4).
+
+The goal is to check lottery cards to see how many correct numbers were selected. Here are some examples of lottery cards:
+```
+"41 48 83 86 17 | 83 86  6 31 17  9 48 53"
+"13 32 20 16 61 | 61 30 68 82 17 32 24 19"
+" 1 21 53 59 44 | 69 82 63 72 16 21 14  1"
+```
+The winning numbers are on the left and what you picked is on the right.
+
+1. Given a single lottery card like `"41 48 83 86 17 | 83 86  6 31 17  9 48 53"`. Split the card into the two sides (left and right). 
+2. Create two lists of integers from the split up card.
+3. Figure out how many of your picks (on the right) match the winning numbers (on the left).
+4. How many winning numbers are there for all the cards combined below? You need to start with this list and use a loop to iterate through all the cards. This should work for any number of cards with any numbers.
+    ```
+    cards = [
+        "41 48 83 86 17 | 83 86  6 31 17  9 48 53",
+        "13 32 20 16 61 | 61 30 68 82 17 32 24 19",
+        " 1 21 53 59 44 | 69 82 63 72 16 21 14  1",
+        "41 92 73 84 69 | 59 84 76 51 58  5 54 83",
+        "87 83 26 28 32 | 88 30 70 12 93 22 82 36",
+        "31 18 13 56 72 | 74 77 10 23 35 67 36 11"
+    ]
+    ```
