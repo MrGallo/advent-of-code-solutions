@@ -4,7 +4,7 @@ The Advent of Code, while extremely fun, is also extremely difficult for begninn
 
 | | | | | |
 | - | - | - | - | - |
-| [Day 1](#day-1) | [Day 2](#day-2) |  |  |  |
+| [Day 1](#day-1) | [Day 2](#day-2) | [Day 3](#day-3) |  |  |
 | | | | | |
 | | | | | |
 | | | | | |
@@ -79,3 +79,26 @@ You meet an elf playing a game, drawing many red, green and blue cubes out of a 
     ```
     In #3, the only possible games would be games 1, 2, and 5 would have been possible if the bag had been loaded with that configuration. However, game 3 would have been impossible because at one point the Elf showed you 20 red cubes at once; similarly, game 4 would also have been impossible because the Elf showed you 15 blue cubes at once.
 5. Rather than determine if the game would be possible with a limited number of cubes, figure out the least amount of each colour a single game would require to be possible. For example `3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green` would require `4 red 2 green 6 blue` in order for this game to be possible.
+
+
+## Day 3
+Check out the [original problem](https://adventofcode.com/2023/day/3).
+
+You have to repair a gondola (a suspended cart to get up a mountain). The elves give you a schematic for the machine. You need to find all the numbers next to a symbol.
+
+1. Given a string, find all the numbers beside a "*" symbol. These are referred to as 'part numbers' on the schematic. What is the sum of all the part numbers? Here is an example:
+    ```
+    "..4.*3...7*5." -> 3 + 7 + 5 = 15
+    ```
+    4 is not considered a part because it is not beside a `*`.
+2. Given a list of these strings make up an entire schematic diagram.
+    ```
+    ..7....4..
+    ...*......
+    ..3...6...
+    ......*...
+    ..7*......
+    ```
+    Now you need to count numbers next to `*` even above, below and diagonally. What is the sum of all the numbers that are parts? In this example, the sum is `7 + 3 + 7 + 6 = 23` ( the `4` is the only one not adjacent to a star)
+3. Stars that are beside *exactly* two numbers are gears. For every star that is a gear, multiply the two numbers together to get the "gear ratio". Add these all the gear ratios together.
+
