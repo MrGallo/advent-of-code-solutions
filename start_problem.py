@@ -13,16 +13,15 @@ def create_files(year, day_number):
     b = 'input.txt'
     c = 'test.txt'
     with open(os.path.join(folder_name, a), 'w') as file_a:
-        file_a.write("# This is a.py\n")
+        file_a.write("")
 
     with open(os.path.join(folder_name, b), 'w') as file_b:
-        file_b.write("# This is b.txt\n")
+        file_b.write("")
 
     with open(os.path.join(folder_name, c), 'w') as file_c:
-        file_c.write("# This is c.txt\n")
+        file_c.write("")
 
-    os.system(f"cd {folder_name}")
-    os.system(f"code {a} {b} {c}")
+    os.system(f"code {folder_name}/{a} {folder_name}/{b} {folder_name}/{c}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

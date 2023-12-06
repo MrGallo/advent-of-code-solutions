@@ -4,7 +4,7 @@ The Advent of Code, while extremely fun, is also extremely difficult for begninn
 
 | | | | | |
 | - | - | - | - | - |
-| [Day 1](#day-1) | [Day 2](#day-2) | [Day 3](#day-3) | [Day 4](#day-4) |  |
+| [Day 1](#day-1) | [Day 2](#day-2) | [Day 3](#day-3) | [Day 4](#day-4) | [Day 5](#day-5) |
 | | | | | |
 | | | | | |
 | | | | | |
@@ -127,3 +127,19 @@ The winning numbers are on the left and what you picked is on the right.
         "31 18 13 56 72 | 74 77 10 23 35 67 36 11"
     ]
     ```
+
+## Day 5
+Check out the [original problem](https://adventofcode.com/2023/day/5).
+
+You have a list of types of seeds and you need to be able to determine what location of land they should be planted in.
+
+1. Given some seed numbers in a string separated by space, read them into a list as integers. The string is `"79 14 55 13"`.
+2. Each seed has a specific location but the seed number needs to be mapped to a location. Here is the map:
+    ```
+    60 56 37
+    56 93 4
+    ```
+    These two lines represent two ranges each. On each line, the first number is the resulting **location start**, the second number is the **seed number start**, the third number is the **amount of numbers** in each range. So in the first line the location range is `60 + 37`, which gives us locations `60` to `96` *inclusive*. The seed range means any seeds with numbers `56` to `92` *inclusive* will be changed to the particular location range. So, a seed number of `56` will be mapped to location `60`, seed number `57` will be mapped to location `61`, `58 -> 62`, `59 -> 63` and so on. Seed numbers that don't get mapped to a new location will just be planted at the number that thay are, so a seed number of `50` (which is out of any of the ranges) will just be planted at location `50`.
+
+    What location should each seed be planted at?
+3. The twist of the original question is the original seed numbers are actually ranges of seeds you have. The first number is where the seed number starts and the next number is how many seeds in the range, so the first pair of numbers `79` and `14`, really means you have seeds 79, 80, 81, ... 92 *inclusive*. Which is starting at `79` and consisting of `14` different seeds. Now find the lowest location that can be planted at given the seeds you have.
