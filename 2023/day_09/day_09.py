@@ -12,13 +12,13 @@ def main():
         sum_next += get_next(history)
 
     
-    print(sum_next)
+    print(sum_next)  # Part 1: 1930746032
 
     sum_prev = 0
     for history in readings:
         sum_prev += get_prev(history)
 
-    print(sum_prev)
+    print(sum_prev)  # Part 2: 1154
 
 
 
