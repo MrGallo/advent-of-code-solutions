@@ -3,30 +3,30 @@ Coordinate = Tuple[int, int]
 
 
 def main():
-    part_1()
+    part_1()  # 6682
     # part_2()  # no idea
 
 
 def part_1():
     start_pos, map = parse_map()
-    pointer_a, pointer_b = map[start_pos]
-    steps = 1
-    visited = {start_pos, pointer_a, pointer_b}
-    while pointer_a != pointer_b:
-        print(pointer_a, pointer_b)
+    pointer_a, pointer_b = start_pos, start_pos
+    steps = 0
+    visited = {start_pos}
+    while True:
         # advance pointer A
         child_a, child_b = map[pointer_a]
-        next = child_a if child_a not in visited else child_b
-        pointer_a = next
+        pointer_a = child_a if child_a not in visited else child_b
         visited.add(pointer_a)
 
         # advance pointer B
         child_a, child_b = map[pointer_b]
-        next = child_a if child_a not in visited else child_b
-        pointer_b = next
+        pointer_b = child_a if child_a not in visited else child_b
         visited.add(pointer_b)
 
         steps += 1
+
+        if pointer_a == pointer_b:
+            break
     
     print(steps)
 
